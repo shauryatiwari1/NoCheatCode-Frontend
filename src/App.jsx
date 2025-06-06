@@ -6,6 +6,7 @@ import Register from './pages/Register'
 import ProblemList from './pages/ProblemList'
 import ProblemDetail from './pages/ProblemDetail'
 import Footer from './components/Footer'
+import Profile from './pages/Profile'
 import './styles/Footer.css'; 
 function ProtectedRoute({ children }) {
   const { isAuthenticated, isLoading } = useAuth()
@@ -74,6 +75,7 @@ function AppContent() {
             } 
           />
           <Route path="/" element={<Navigate to="/problems" replace />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </main>
     </>

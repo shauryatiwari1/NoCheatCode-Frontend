@@ -213,7 +213,7 @@ const { isAuthenticated } = useAuth();
 
             {problem.examples && problem.examples.length > 0 && (
   <div className="problem-examples">
-    <h3>Examples</h3>
+    <h3>Examples/Constraints</h3>
     {problem.examples.map((example, index) => (
       <div key={index} className="example-box">
         <div className="example-input">

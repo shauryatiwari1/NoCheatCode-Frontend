@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import Profile from '../pages/Profile.jsx'
 
 function Navbar() {
   const { user, logout, isAuthenticated } = useAuth()
@@ -24,9 +25,9 @@ function Navbar() {
           {isAuthenticated ? (
             <>
               
-              <span className="nav-user">
-                Welcome, {user?.username || 'User'}
-              </span>
+              <Link to="/profile" className="nav-user">
+  Welcome, {user?.username || 'User'}
+</Link>
               <button 
                 onClick={handleLogout}
                 className="nav-buttons"

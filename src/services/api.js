@@ -45,13 +45,15 @@ export const authAPI = {
 
 // Problems API
 export const problemsAPI = {
-  getAll: () => api.get('/problems'),
+  getAll: () => api.get('/problems?page=0&size=100'),
   getById: (id) => api.get(`/problems/${id}`),
 }
 
 // Submission API
 export const submissionAPI = {
   submit: (data) => api.post('/submit', data),
+  getUserSubmissions: () => api.get('/submissions'),
+  getProblemSubmissions: (problemId) => api.get(`/submissions/problem/${problemId}`)
 }
 
 export default api
