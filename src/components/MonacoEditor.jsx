@@ -22,6 +22,7 @@ function CodeEditor({
     fontSize: 14,
     fontFamily: "'Consolas', monospace",
     minimap: { enabled: false },
+    theme: 'vs-dark',
     scrollBeyondLastLine: true,
     lineNumbers: "on",
     roundedSelection: false,

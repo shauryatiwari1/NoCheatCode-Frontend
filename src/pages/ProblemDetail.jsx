@@ -342,7 +342,7 @@ const { isAuthenticated } = useAuth();
         top: '10px',
         background: 'transparent',
         border: 'none',
-        color: 'black',
+        color: 'white',
         cursor: 'pointer'
       }}
     >

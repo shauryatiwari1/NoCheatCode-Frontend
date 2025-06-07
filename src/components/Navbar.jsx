@@ -15,7 +15,8 @@ function Navbar() {
     <nav className="navbar">
       <div className="nav-content">
         <Link to="/" className="logo">
-          NoCheatCode
+          NoCheatCode &lt;/&gt;
+
         </Link>
         <Link to="/problems" className="nav-user">
                 Problem Set
