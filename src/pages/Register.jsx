@@ -650,6 +650,23 @@ function Register() {
             grid-template-columns: 1fr !important;
           }
         }
+          @media (max-width: 480px) {
+  div[style*="grid-template-columns"] {
+    grid-template-columns: 200px 300px !important;
+    min-width: 200px !important;
+    overflow-x: auto !important;
+  }
+    div[style*="grid-template-columns"]::-webkit-scrollbar {
+    height: 4px;
+  }
+    div[style*="grid-template-columns"]::-webkit-scrollbar {
+    display: none !important;
+  }
+    div[style*="grid-template-columns"]::-webkit-scrollbar-thumb {
+    background: rgba(139, 69, 255, 0.3);
+    border-radius: 2px;
+  }
+}
       `}</style>
     </div>
   )
