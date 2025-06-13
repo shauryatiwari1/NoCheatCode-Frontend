@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './AiHelper.css'; // Optional styling
 import { useAuth } from '../context/AuthContext';
+import api from '../services/api';
 
 const AiHelper = ({ isOpen, onClose, code, problemTitle, problemDescription }) => {
   const [hintLevel, setHintLevel] = useState(null);
@@ -10,7 +11,7 @@ const AiHelper = ({ isOpen, onClose, code, problemTitle, problemDescription }) =
   const [userInput, setUserInput] = useState('');
   const [chatHistory, setChatHistory] = useState([]);
   const [chatLoading, setChatLoading] = useState(false);
-  const { isAuthenticated, isLoading } = useAuth();
+  const { isAuthenticated, isLoading, user } = useAuth();
   const { token } = useAuth();
 
   const analyzeCode = async () => {
@@ -18,8 +19,7 @@ const AiHelper = ({ isOpen, onClose, code, problemTitle, problemDescription }) =
     setHint('');
     setHintLevel('analyze');
     
-    try {
-      const res = await axios.post('http://localhost:8080/api/aihelper/analyze', {
+    try {      const res = await api.post('/aihelper/analyze', {
         code,
         problemTitle,
         problemDescription,
@@ -49,8 +49,7 @@ const AiHelper = ({ isOpen, onClose, code, problemTitle, problemDescription }) =
     
     setChatHistory(prev => [...prev, { type: 'user', message: userMessage }]);
     
-    try {
-      const res = await axios.post('http://localhost:8080/api/aihelper/chat', {
+    try {      const res = await api.post('/aihelper/chat', {
         code,
         problemTitle,
         problemDescription,
@@ -74,8 +73,7 @@ const AiHelper = ({ isOpen, onClose, code, problemTitle, problemDescription }) =
   const fetchHint = async (level) => {
     setLoading(true);
     setHint('');
-    try {
-      const res = await axios.post('http://localhost:8080/api/aihelper/hint', {
+    try {      const res = await api.post('/aihelper/hint', {
         code,
         problemTitle,
         problemDescription,
@@ -171,7 +169,7 @@ const AiHelper = ({ isOpen, onClose, code, problemTitle, problemDescription }) =
               <textarea
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
-                placeholder="Ask me anything about this problem..."
+                placeholder={`Hello, ${user?.username}! Ask me anything about this problem or coding...`}
                 className="chat-input"
                 rows="2"
                 onKeyPress={(e) => {
