@@ -9,6 +9,9 @@ function CodeEditor({
   const handleEditorChange = (value) => {
     onChange(value)
   }
+  const handleEditorDidMount = (editor, monaco) => {
+  monaco.editor.setTheme(theme);
+};
 
   return (
     <div className="editor-container" style={{ height: '600px' }}>
@@ -17,7 +20,8 @@ function CodeEditor({
   
   defaultLanguage={language}
   value={code}
-  onChange={onChange}
+  onChange={handleEditorChange}
+  onMount={handleEditorDidMount} 
   options={{
     fontSize: 14,
     fontFamily: "'Consolas', monospace",
