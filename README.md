@@ -1,4 +1,4 @@
-# NoCheatCode (NCC)
+# NoCheatCode (NCC) Frontend Repository
 *"Guidance over answers. Growth over shortcuts."*
 
 NoCheatCode (NCC) is a next-generation programming platform built to prevent solution copying and encourage real learning. This is a SaaS Platform where users can come and get real learning and build Problem-Solving Skills. AI Assistant remembers your previous coding patterns, gets personalized and suggest improvements.
